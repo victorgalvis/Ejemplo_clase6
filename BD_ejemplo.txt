@@ -1,45 +1,51 @@
+CREATE TABLE Orders (
+    OrderID int NOT NULL PRIMARY KEY,
+    OrderNumber int NOT NULL,
+    PersonID int FOREIGN KEY REFERENCES Persons(PersonID)
+);
+
 */-------------------------------------------------------------------
 
 *CLIENTES*
-carnÈ de identidad,
+carn√© de identidad,
 nombre de pila,
 apellido,
-correo electrÛnico,
-direcciÛn,
-telÈfono,
+correo electr√≥nico,
+direcci√≥n,
+tel√©fono,
 rodera
 
 
 *UBICACIONES*
-carnÈ de identidad,
+carn√© de identidad,
 ciudad,
 nombre del gerente,
 apellido del gerente
 
 
 *CUENTAS*
-carnÈ de identidad,
-tipo, (ahorros, tarjeta de crÈdito y prÈstamo)
+carn√© de identidad,
+tipo, (ahorros, tarjeta de cr√©dito y pr√©stamo)
 fecha de apertura,
 equilibrar,
-IdentificaciÛn del cliente,
-ID de ubicaciÛn
+Identificaci√≥n del cliente,
+ID de ubicaci√≥n
 
 */-------------------------------------------------------------------
 
-1. Enumere los clientes con tarjetas de crÈdito y ordene el resultado por "rodera" ascendente.
-2. Haga una lista de rut, concatene el nombre y el apellido y asÌgnele el nombre "full_name" de los clientes que
+1. Enumere los clientes con tarjetas de cr√©dito y ordene el resultado por "rodera" ascendente.
+2. Haga una lista de rut, concatene el nombre y el apellido y as√≠gnele el nombre "full_name" de los clientes que
 tener productos en la ciudad "Melipeuco"
-3. Di cu·l es la ciudad donde el gerente es "Cruz Norton"
-4. Enumere la identificaciÛn, la fecha de apertura y el tipo de producto de las cuentas que el propietario es "Nora"
-5. La junta directiva est· solicitando conocer las ubicaciones, n˙meros de cuentas y saldos
-que son prÈstamos con un saldo superior a 90000 y se emitieron en 2011
-6. Descubre los saldos de las cuentas m·s altas
+3. Di cu√°l es la ciudad donde el gerente es "Cruz Norton"
+4. Enumere la identificaci√≥n, la fecha de apertura y el tipo de producto de las cuentas que el propietario es "Nora"
+5. La junta directiva est√° solicitando conocer las ubicaciones, n√∫meros de cuentas y saldos
+que son pr√©stamos con un saldo superior a 90000 y se emitieron en 2011
+6. Descubre los saldos de las cuentas m√°s altas
 7. Indique el nombre y el apellido de la cuenta que tiene el saldo encontrado en el anterior
 bala.
-8. Enumere las ubicaciones que emitieron prÈstamos en el aÒo 2015
-9. Descubre los clientes que no tienen tarjetas de crÈdito en la ciudad "Hulshout"
-10. Encuentra el saldo m·s bajo del prÈstamo entre todas las ubicaciones
+8. Enumere las ubicaciones que emitieron pr√©stamos en el a√±o 2015
+9. Descubre los clientes que no tienen tarjetas de cr√©dito en la ciudad "Hulshout"
+10. Encuentra el saldo m√°s bajo del pr√©stamo entre todas las ubicaciones
 
 
 //Respuestas//
