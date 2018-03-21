@@ -1,0 +1,70 @@
+*/-------------------------------------------------------------------
+
+*CLIENTES*
+carné de identidad,
+nombre de pila,
+apellido,
+correo electrónico,
+dirección,
+teléfono,
+rodera
+
+
+*UBICACIONES*
+carné de identidad,
+ciudad,
+nombre del gerente,
+apellido del gerente
+
+
+*CUENTAS*
+carné de identidad,
+tipo, (ahorros, tarjeta de crédito y préstamo)
+fecha de apertura,
+equilibrar,
+Identificación del cliente,
+ID de ubicación
+
+*/-------------------------------------------------------------------
+
+1. Enumere los clientes con tarjetas de crédito y ordene el resultado por "rodera" ascendente.
+2. Haga una lista de rut, concatene el nombre y el apellido y asígnele el nombre "full_name" de los clientes que
+tener productos en la ciudad "Melipeuco"
+3. Di cuál es la ciudad donde el gerente es "Cruz Norton"
+4. Enumere la identificación, la fecha de apertura y el tipo de producto de las cuentas que el propietario es "Nora"
+5. La junta directiva está solicitando conocer las ubicaciones, números de cuentas y saldos
+que son préstamos con un saldo superior a 90000 y se emitieron en 2011
+6. Descubre los saldos de las cuentas más altas
+7. Indique el nombre y el apellido de la cuenta que tiene el saldo encontrado en el anterior
+bala.
+8. Enumere las ubicaciones que emitieron préstamos en el año 2015
+9. Descubre los clientes que no tienen tarjetas de crédito en la ciudad "Hulshout"
+10. Encuentra el saldo más bajo del préstamo entre todas las ubicaciones
+
+
+//Respuestas//
+1. SELECT CUST.LAST_NAME, CUST.FIRST_NAME, ACC.TYPE, ACC.APERTURE_DATE, CUST.RUT
+FROM ACCOUNTS ACC
+INNER JOIN CUSTOMERS CUST ON ACC.CUSTOMER_ID = CUST.ID WHERE ACC.TYPE = 'credit_card'
+ORDER BY CUST.RUT ASC;
+
+
+
+2. SELECT CUST.RUT, CONCAT(CONCAT(CUST.FIRST_NAME,' '),CUST.LAST_NAME) AS "FULL_NAME", LOCA.CITY
+FROM ACCOUNTS ACC
+INNER JOIN LOCATIONS LOCA ON ACC.LOCATION_ID = LOCA.ID 
+INNER JOIN CUSTOMERS CUST ON ACC.CUSTOMER_ID = CUST.ID
+WHERE LOCA.CITY ='Melipeuco'
+ORDER BY CUST.RUT ASC;
+
+
+3.SELECT CITY
+FROM LOCATIONS
+WHERE MANAGER_FIRST_NAME = 'Cruz' AND 
+MANAGER_LAST_NAME = 'Norton';
+
+
+4.SELECT CUST.ID as Identificacion, ACC.APERTURE_DATE AS APERTURA , ACC.TYPE AS TIPO 
+FROM ACCOUNTS ACC 
+INNER JOIN CUSTOMERS CUST ON CUST.ID = ACC.CUSTOMER_ID
+WHERE CUST.FIRST_NAME ='Nora';
